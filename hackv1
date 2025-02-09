@@ -1,5 +1,7 @@
-local plrs = game.Players:GetPlayers()
-for i, v in pairs(plrs) do
-  v.Character.Humanoid.MaxHealth = 999999999999999999999999999999
-    v.Character.Humanoid.Health = 999999999999999999999999999999
-  end
+local _0x9D1D=function()return game.Players.LocalPlayer end
+local _0xA3B9=_0x9D1D().Backpack
+local _0xB6F3=nil
+local _0xD5A6=function(_0x8F1A)if _0x8F1A and not _0x9D1D().Character:FindFirstChild(_0x8F1A.Name)then _0x8F1A.Parent=_0x9D1D().Character end end
+local _0xF8A4=function()while true do _0xB6F3=_0xA3B9:FindFirstChildOfClass("Tool")if _0xB6F3 then _0xD5A6(_0xB6F3)if _0x9D1D().Character then local _0x7F3C=_0x9D1D().Character:FindFirstChild("Humanoid")if _0x7F3C then local _0x67F4=_0x7F3C.Health local _0x1D0B=_0x7F3C.MaxHealth local _0x3F6E=10000 _0x7F3C.Health=math.min(_0x67F4+_0x3F6E,_0x1D0B)end end end wait(0.3)end end end
+_0xF8A4()
+
