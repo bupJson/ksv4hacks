@@ -1,5 +1,27 @@
-while true do
-wait(0.1)
-game.Players.LocalPlayer.Character.Humanoid.Health = 1000000000000
-game.Players.LocalPlayer.Character.Humanoid.MaxHealth = 99999999999999999
+-- Получаем персонажа игрока
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Функция для создания бессмертия
+local function makeImmortal()
+    -- Ищем объект здоровья персонажа
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- Устанавливаем здоровье персонажа на максимальное значение
+    humanoid.Health = humanoid.MaxHealth
+
+    -- Останавливаем смерть персонажа
+    humanoid.Died:Connect(function()
+        humanoid.Health = humanoid.MaxHealth -- Персонаж не умрет, его здоровье восстанавливается
+    end)
+
+    -- Постоянно восстанавливаем здоровье
+    while true do
+        humanoid.Health = humanoid.MaxHealth
+        wait(1)  -- Можно настроить частоту восстановления здоровья
+    end
 end
+
+-- Вызываем функцию бессмертия
+makeImmortal()
+
